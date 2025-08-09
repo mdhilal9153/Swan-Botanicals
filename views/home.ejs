@@ -133,6 +133,8 @@
 
         /* USP Bar Section */
         .usp-bar {
+            position: relative; /* Set position to create a stacking context */
+            z-index: 2; /* Ensure this is layered above the carousel */
             background-color: var(--serene-mint);
             padding: 1rem 0;
             color: var(--botanical-charcoal);
@@ -142,6 +144,8 @@
         /* General Section Styling */
         .section-padding {
             padding: 5rem 0;
+            position: relative; /* Set position for all sections */
+            z-index: 2; /* Ensure they are all layered above the carousel */
         }
         .section-title {
             font-family: 'Playfair Display', serif;
@@ -172,7 +176,7 @@
             height: 100%; width: 100%;
             opacity: 0;
             transition: .3s ease;
-            background-color: rgba(42, 77, 58, 0.85);
+            background-color: rgba(var(--warm-ivory-rgb), 0.9);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -270,7 +274,7 @@
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="https://images.unsplash.com/photo-1751283246779-cb72aa04250b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Serene woman with eyes closed surrounded by leaves">
+          <img src="https://images.unsplash.com/photo-1618390225809-4a1f2b0f2526?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Serene woman with eyes closed surrounded by leaves">
           <div class="carousel-caption">
             <h1>Botanical beauty, inspired by a mother's love</h1>
             <p>Gentle care, visible results. 99% botanical, 0% synthetic chemicals.</p>
@@ -319,7 +323,7 @@
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="product-card">
-                        <img src="https://placehold.co/400x400/F8F4E3/2A4D3A?text=Product+One" class="img-fluid" alt="Product Image">
+                        <img src="/images/SAN_8508.jpg" class="img-fluid" alt="Product Image">
                         <div class="product-overlay">
                             <h5 class="fw-bold">Flawless Facial Oil</h5>
                             <p>A rejuvenating blend of natural oils.</p>
@@ -328,7 +332,7 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="product-card">
-                        <img src="https://placehold.co/400x400/F8F4E3/2A4D3A?text=Product+Two" class="img-fluid" alt="Product Image">
+                        <img src="/images/SAN_8508.jpg" class="img-fluid" alt="Product Image">
                         <div class="product-overlay">
                             <h5 class="fw-bold">Hydrating Mist</h5>
                             <p>Instant refreshment for tired skin.</p>
@@ -337,7 +341,7 @@
                 </div>
                 <div class="col-md-4 mb-4">
                     <div class="product-card">
-                        <img src="https://placehold.co/400x400/F8F4E3/2A4D3A?text=Product+Three" class="img-fluid" alt="Product Image">
+                        <img src="/images/SAN_8508.jpg" class="img-fluid" alt="Product Image">
                         <div class="product-overlay">
                            <h5 class="fw-bold">Nourishing Cream</h5>
                            <p>Rich, deep moisture for a healthy glow.</p>
