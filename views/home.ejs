@@ -18,10 +18,12 @@
             --forest-canopy: #2A4D3A;
             --warm-ivory: #F8F4E3;
             --botanical-charcoal: #2C2C2A;
+            --serene-mint: #D9F8F0;
         }
 
         body {
             font-family: 'Open Sans', sans-serif;
+            background-color: #f9f9f9; /* A very light grey for the body */
         }
 
         /* Custom styles for the navbar */
@@ -29,6 +31,7 @@
             padding-top: 1rem;
             padding-bottom: 1rem;
             background-color: #fff !important;
+            z-index: 1030; /* Ensure navbar is on top */
         }
         .navbar-brand {
             font-family: 'Open Sans', sans-serif;
@@ -68,34 +71,22 @@
 
         /* Custom styles for the hero slideshow */
         #heroCarousel {
+            position: relative; /* Establish stacking context */
+            z-index: 1; /* Lower layer */
             width: 100%;
-            /* Using aspect-ratio for a consistent rectangular shape. 16/7 is a wide, panoramic ratio. */
             aspect-ratio: 16 / 7;
-            /* Set a max-height to prevent it from becoming overly tall on extremely wide screens */
             max-height: 600px;
-            /* Override any potential min-height from Bootstrap's CSS */
             min-height: auto !important;
         }
-
-        .carousel-item {
-            /* Ensure the carousel item fills the new aspect-ratio container */
-            height: 100%;
-        }
-
+        .carousel-item { height: 100%; }
         .carousel-item img {
-            /* This ensures the image covers the entire area of the container without distortion */
             object-fit: cover;
             height: 100%;
             width: 100%;
-            filter: brightness(0.7); /* Darken image slightly to make text pop */
+            filter: brightness(0.7); 
         }
-        
         .carousel-caption {
-            /* Override bootstrap defaults */
-            right: 0;
-            left: 0;
-            bottom: 0;
-            top: 0;
+            right: 0; left: 0; bottom: 0; top: 0;
             padding: 2rem;
             display: flex;
             flex-direction: column;
@@ -106,7 +97,7 @@
         }
         .carousel-caption h1 {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4.5rem); /* Responsive font size */
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 700;
             max-width: 800px;
         }
@@ -116,7 +107,7 @@
             max-width: 600px;
             margin-top: 1rem;
         }
-        .carousel-caption .btn-ritual {
+        .btn-ritual {
             background-color: var(--warm-ivory);
             color: var(--forest-canopy);
             border: none;
@@ -129,50 +120,59 @@
             margin-top: 2rem;
             transition: all 0.3s ease;
         }
-        .carousel-caption .btn-ritual:hover {
+        .btn-ritual:hover {
             background-color: #fff;
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         .carousel-indicators [data-bs-target] {
-            width: 10px;
-            height: 10px;
+            width: 10px; height: 10px;
             border-radius: 100%;
             margin: 0 5px;
         }
 
-        /* Styles for the Products Section */
-        .products-section {
-            padding: 5rem 0; /* Add generous top and bottom padding */
+        /* USP Bar Section */
+        .usp-bar {
+            background-color: var(--serene-mint);
+            padding: 1rem 0;
+            color: var(--botanical-charcoal);
+            font-weight: 500;
         }
-        .products-section h2 {
+
+        /* General Section Styling */
+        .section-padding {
+            padding: 5rem 0;
+        }
+        .section-title {
             font-family: 'Playfair Display', serif;
             font-weight: 700;
             color: var(--botanical-charcoal);
         }
+
+        /* Product Section */
+        .products-section {
+            background-color: #fff;
+        }
         .product-card {
-            position: relative; /* Needed for the overlay */
+            position: relative;
             border-radius: 8px;
-            overflow: hidden; /* Keeps the overlay within the rounded corners */
+            overflow: hidden;
             cursor: pointer;
             background-color: #fff;
+            border: 1px solid #eee;
         }
         .product-card img {
             max-width: 100%;
             height: auto;
-            display: block; /* Removes any extra space below the image */
+            display: block;
         }
         .product-overlay {
             position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            width: 100%;
-            opacity: 0; /* Hidden by default */
+            top: 0; bottom: 0; left: 0; right: 0;
+            height: 100%; width: 100%;
+            opacity: 0;
             transition: .3s ease;
-            background-color: rgba(42, 77, 58, 0.85); /* Semi-transparent Forest Canopy */
+            background-color: rgba(42, 77, 58, 0.85);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -180,15 +180,54 @@
             text-align: center;
             padding: 1.5rem;
         }
-        .product-card:hover .product-overlay {
-            opacity: 1; /* Show on hover */
-        }
+        .product-card:hover .product-overlay { opacity: 1; }
         .product-overlay h5 {
             color: #fff;
             font-family: 'Playfair Display', serif;
         }
-        .product-overlay p {
-            color: var(--warm-ivory);
+        .product-overlay p { color: var(--warm-ivory); }
+
+        /* Story & Advisor Section */
+        .story-section img, .advisor-section img {
+            border-radius: 8px;
+            object-fit: cover;
+            height: 100%;
+        }
+
+        /* Social Proof Section */
+        .ugc-gallery img {
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .ugc-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--warm-ivory);
+            color: var(--botanical-charcoal);
+        }
+        .footer h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer ul li a {
+            color: var(--botanical-charcoal);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer ul li a:hover {
+            color: var(--forest-canopy);
+        }
+        .footer .social-icons a {
+            font-size: 1.5rem;
+            margin-right: 1rem;
         }
 
     </style>
@@ -225,13 +264,10 @@
 
     <!-- Hero Slideshow Section -->
     <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-      <!-- Indicators/dots -->
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
       </div>
-    
-      <!-- The slideshow/carousel -->
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="https://images.unsplash.com/photo-1751283246779-cb72aa04250b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Serene woman with eyes closed surrounded by leaves">
@@ -242,7 +278,7 @@
           </div>
         </div>
         <div class="carousel-item">
-          <img src="https://images.unsplash.com/photo-1748279944004-f1d733dc711b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Skincare products in a beautiful flatlay with botanical elements">
+          <img src="https://images.unsplash.com/photo-1748279944004-f1d733dc711b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Skincare products in a beautiful flatlay">
            <div class="carousel-caption">
             <h1>Pure Ingredients, Powerful Results</h1>
             <p>Experience the difference of nature's finest, crafted with care.</p>
@@ -250,8 +286,6 @@
           </div>
         </div>
       </div>
-    
-      <!-- Left and right controls/icons -->
       <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -262,21 +296,27 @@
       </button>
     </div>
 
+    <!-- USP Bar -->
+    <div class="usp-bar">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4">99% Botanical Ingredients</div>
+                <div class="col-md-4">Mother-Tested & Dermatologist-Verified</div>
+                <div class="col-md-4">Cruelty-Free & Sustainable</div>
+            </div>
+        </div>
+    </div>
 
     <!-- Featured Products Section -->
-    <div class="products-section">
+    <div class="products-section section-padding">
         <div class="container">
-            <!-- Section Title -->
             <div class="row mb-5 text-center">
                 <div class="col">
-                    <h2>Featured Botanicals</h2>
+                    <h2 class="section-title">Featured Botanicals</h2>
                     <p class="lead text-muted">Hand-picked selections for your daily ritual.</p>
                 </div>
             </div>
-
-            <!-- Product Grid -->
             <div class="row">
-                <!-- Product 1 -->
                 <div class="col-md-4 mb-4">
                     <div class="product-card">
                         <img src="https://placehold.co/400x400/F8F4E3/2A4D3A?text=Product+One" class="img-fluid" alt="Product Image">
@@ -286,7 +326,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Product 2 -->
                 <div class="col-md-4 mb-4">
                     <div class="product-card">
                         <img src="https://placehold.co/400x400/F8F4E3/2A4D3A?text=Product+Two" class="img-fluid" alt="Product Image">
@@ -296,7 +335,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Product 3 -->
                 <div class="col-md-4 mb-4">
                     <div class="product-card">
                         <img src="https://placehold.co/400x400/F8F4E3/2A4D3A?text=Product+Three" class="img-fluid" alt="Product Image">
@@ -310,6 +348,101 @@
         </div>
     </div>
 
+    <!-- Our Story Section -->
+    <div class="story-section section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <img src="https://images.unsplash.com/photo-1556760544-74068565345d?q=80&w=1887&auto=format&fit=crop" class="img-fluid" alt="Founder of Swan Botanicals">
+                </div>
+                <div class="col-md-6 ps-md-5">
+                    <h2 class="section-title">Inspired by a Mother's Love</h2>
+                    <p class="lead">Swan Botanicals was born from a promise: to create skincare that is as safe and nurturing as it is effective. Our journey began with a search for purity and ended in a celebration of nature's power.</p>
+                    <a href="#" class="btn btn-outline-dark rounded-pill">Read Our Story</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skincare Advisor Section -->
+    <div class="advisor-section section-padding" style="background-color: var(--warm-ivory);">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h2 class="section-title">Your Personalized Ritual Awaits</h2>
+                    <p class="lead my-4">Unsure where to begin? Take our 2-minute quiz to discover the perfect botanical regimen for your unique skin needs and goals.</p>
+                    <a href="#" class="btn btn-ritual">Find My Ritual</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Proof / UGC Section -->
+    <div class="social-proof-section section-padding">
+        <div class="container">
+            <div class="row mb-5 text-center">
+                <div class="col">
+                    <h2 class="section-title">Share Your Glow</h2>
+                    <p class="lead text-muted">See how others are loving their Swan Botanicals ritual. Tag us <a href="#">#MySwanRitual</a></p>
+                </div>
+            </div>
+            <div class="row g-4 ugc-gallery">
+                <div class="col-md-3 col-6"><img src="https://placehold.co/400x400/D9F8F0/2C2C2A?text=@user1" class="img-fluid" alt="User generated content"></div>
+                <div class="col-md-3 col-6"><img src="https://placehold.co/400x400/D9F8F0/2C2C2A?text=@user2" class="img-fluid" alt="User generated content"></div>
+                <div class="col-md-3 col-6"><img src="https://placehold.co/400x400/D9F8F0/2C2C2A?text=@user3" class="img-fluid" alt="User generated content"></div>
+                <div class="col-md-3 col-6"><img src="https://placehold.co/400x400/D9F8F0/2C2C2A?text=@user4" class="img-fluid" alt="User generated content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <h5>Swan Botanicals</h5>
+                    <p>Quality crafted, botanically infused, and customer-centric skincare inspired by a mother's love.</p>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5>Shop</h5>
+                    <ul>
+                        <li><a href="#">Cleansers</a></li>
+                        <li><a href="#">Serums</a></li>
+                        <li><a href="#">Moisturizers</a></li>
+                        <li><a href="#">Eye Care</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                    <h5>About</h5>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">The Botanical Journal</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5>Join Our Ritual</h5>
+                    <p>Be the first to know about new products, exclusive offers, and botanical secrets.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address">
+                            <button class="btn btn-dark" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                    <div class="social-icons mt-4">
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <small>&copy; 2025 Swan Botanicals. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
