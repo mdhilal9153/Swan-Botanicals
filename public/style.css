@@ -1,0 +1,422 @@
+/* Define Brand Colors */
+:root {
+    --forest-canopy: #2A4D3A;
+    --warm-ivory: #F8F4E3;
+    --botanical-charcoal: #2C2C2A;
+    --serene-mint: #D9F8F0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f9f9f9; /* A very light grey for the body */
+}
+        
+/* Custom styles for the navbar */
+.navbar {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: #fff !important;
+    z-index: 1030; /* Ensure navbar is on top */
+}
+        
+.navbar-brand {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.navbar-nav .nav-link {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--botanical-charcoal);
+    margin: 0 1rem;
+}
+
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+    color: #000;
+    border-bottom: 2px solid #000;
+    padding-bottom: 4px;
+}
+        
+.navbar-icons a {
+            
+    color: var(--botanical-charcoal);
+            
+    font-size: 1.2rem;
+        
+    margin-left: 1.5rem;
+}
+
+.navbar-icons a:hover {
+
+    color: #000;
+
+}
+
+@media (min-width: 992px) {
+
+    .navbar-nav {
+
+        position: absolute;
+
+        left: 50%;
+
+        transform: translateX(-50%);
+
+    }
+
+}
+
+h1 {
+     font-family: 'Playfair Display', serif;
+}
+
+/* Custom styles for the hero slideshow */
+        
+#heroCarousel {
+
+    position: relative; /* Establish stacking context */
+
+    z-index: 1; /* Lower layer */
+
+    width: 100%;
+
+    aspect-ratio: 16 / 7;
+
+    max-height: 600px;
+
+    min-height: auto !important;
+
+}
+
+.carousel-item { height: 100%; }
+
+.carousel-item img {
+
+    object-fit: cover;
+
+    height: 100%;
+
+    width: 100%;
+
+    filter: brightness(0.7); 
+
+}
+
+.carousel-caption {
+
+    right: 0; left: 0; bottom: 0; top: 0;
+
+    padding: 2rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    color: #fff;
+
+}
+
+.carousel-caption h1 {
+
+    font-family: 'Playfair Display', serif;
+
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+
+    font-weight: 700;
+
+    max-width: 800px;
+
+}
+
+.carousel-caption p {
+
+    font-family: 'Open Sans', sans-serif;
+
+    font-size: clamp(1rem, 2vw, 1.25rem);
+
+    max-width: 600px;
+
+    margin-top: 1rem;
+
+}
+
+.btn-ritual {
+
+    background-color: var(--warm-ivory);
+
+    color: var(--forest-canopy);
+
+    border: none;
+
+    padding: 0.8rem 2.5rem;
+
+    font-family: 'Open Sans', sans-serif;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    border-radius: 50px;
+
+    margin-top: 2rem;
+
+    transition: all 0.3s ease;
+
+}
+
+.btn-ritual:hover {
+
+    background-color: #fff;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+
+
+}
+
+
+.carousel-indicators [data-bs-target] {
+
+
+    
+    width: 10px; height: 10px;
+
+
+    
+    border-radius: 100%;
+
+
+    
+    margin: 0 5px;
+
+
+    
+}
+
+
+
+/* USP Bar Section */
+
+.usp-bar {
+
+    position: relative; /* Set position to create a stacking context */
+
+    z-index: 2; /* Ensure this is layered above the carousel */
+
+    background-color: var(--serene-mint);
+
+    padding: 1rem 0;
+
+    color: var(--botanical-charcoal);
+
+
+    font-weight: 500;
+
+}
+
+
+
+/* General Section Styling */
+
+
+.section-padding {
+
+    padding: 5rem 0;
+
+    position: relative; /* Set position for all sections */
+
+    z-index: 2; /* Ensure they are all layered above the carousel */
+
+}
+
+.section-title {
+
+    font-family: 'Playfair Display', serif;
+
+    font-weight: 700;
+
+    color: var(--botanical-charcoal);
+
+
+}
+
+
+/* Product Section */
+
+.products-section {
+
+    background-color: #fff;
+
+}
+
+.product-card {
+
+    position: relative;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background-color: #fff;
+
+    border: 1px solid #eee;
+
+}
+
+.product-card img {
+
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+
+}
+
+.product-overlay {
+
+    position: absolute;
+
+    top: 0; bottom: 0; left: 0; right: 0;
+
+    height: 100%; width: 100%;
+
+    opacity: 0;
+
+    transition: .3s ease;
+
+    background-color: rgba(var(--warm-ivory-rgb), 0.9);
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 1.5rem;
+
+}
+
+.product-card:hover .product-overlay { opacity: 1; }
+
+.product-overlay h5 {
+
+    color: #fff;
+
+    font-family: 'Playfair Display', serif;
+
+}
+
+.product-overlay p { color: var(--warm-ivory); }
+
+
+
+/* Story & Advisor Section */
+
+.story-section img, .advisor-section img {
+
+    border-radius: 8px;
+
+    object-fit: cover;
+
+    height: 100%;
+
+}
+
+
+
+/* Social Proof Section */
+
+.ugc-gallery img {
+
+    border-radius: 8px;
+
+    transition: transform 0.3s ease;
+
+}
+
+.ugc-gallery img:hover {
+    transform: scale(1.05);
+
+}
+
+
+
+
+/* Footer */
+.footer {
+
+    background-color: var(--warm-ivory);
+
+    color: var(--botanical-charcoal);
+
+}
+
+.footer h5 {
+    font-family: 'Playfair Display', serif;
+
+    font-weight: 700;
+
+    margin-bottom: 1rem;
+
+}
+
+.footer ul {
+
+    list-style: none;
+
+    padding: 0;
+
+}
+
+.footer ul li a {
+
+    color: var(--botanical-charcoal);
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+
+}
+
+.footer ul li a:hover {
+
+    color: var(--forest-canopy);
+
+}
+
+.footer .social-icons a {
+
+    font-size: 1.5rem;
+
+    margin-right: 1rem;
+
+}
+
+.ourStory img{
+    width: 100%;
+    min-height: 400px !important;
+    max-height: 400px;
+    object-fit: cover;
+}

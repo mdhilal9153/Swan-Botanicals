@@ -1,0 +1,19 @@
+<% layout('layout/boilerplate.ejs') %>
+
+
+<body>
+    <!-- 1. Create a wrapper and make it the positioning boundary -->
+    <div class="ourStory position-relative">
+
+        <!-- The Image -->
+        <img src="https://images.unsplash.com/photo-1445053023192-8d45cb66099d?q=80&w=1170&auto=format&fit=crop" class="img-fluid" alt="Our story main image">
+
+        <!-- 2. Place the text overlay INSIDE the wrapper -->
+        <!-- It's better to use a generic class name here, not 'carousel-caption' -->
+        <div class="image-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white">
+            <h1 class="fw-bold">A Story Rooted in Care</h1>
+            <!-- <p>Gentle care, visible results. 99% botanical, 0% synthetic chemicals.</p> -->
+        </div>
+
+    </div>
+</body>
