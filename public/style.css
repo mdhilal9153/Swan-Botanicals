@@ -420,3 +420,39 @@ h1 {
     max-height: 400px;
     object-fit: cover;
 }
+
+.storyimg {
+    border-radius: 2px;
+}
+
+/* Container for the layered images */
+.image-container {
+    position: relative; /* This is the most important part! */
+}
+
+/* The main, larger image in the background */
+.primary-image {
+    border-radius: 8px;
+}
+
+/* The smaller image that sits on top */
+.overlapping-image {
+    position: absolute; /* Lifts the image to be placed on top */
+    width: 55%;         /* Set the width of the smaller image */
+    bottom: -10%;       /* Position it 10% from the bottom */
+    right: -10%;        /* Position it 10% from the right */
+    border-radius: 8px;
+    border: 6px solid #fff; /* Adds a clean white border for separation */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Adds depth */
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 767px) {
+    .overlapping-image {
+        /* On smaller screens, make the overlap less dramatic */
+        width: 50%;
+        bottom: -5%;
+        right: -5%;
+        border-width: 4px;
+    }
+}
