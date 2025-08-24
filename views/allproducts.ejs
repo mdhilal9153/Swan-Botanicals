@@ -1,0 +1,25 @@
+<% layout('layout/boilerplate.ejs') %>
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <%for(let product of products){%>
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-img-container">
+                        <img src="<%=product.image%>" class="card-img-top" alt="Product Image">
+                    </div>
+                    
+                    <div class="card-body">
+                        <h5 class="card-title"><%=product.name%></h5>
+                        <h4 class="card-text"><%=product.price%></h4>
+                        <a href="/product/<%=product.id%>" class="btn btn-success">Shop now</a>
+                    </div>
+                </div>
+            </div>
+        <%}%>
+        
+    </div>
+</div>
+
+
+

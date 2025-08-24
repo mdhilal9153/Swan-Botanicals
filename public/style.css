@@ -456,3 +456,44 @@ h1 {
         border-width: 4px;
     }
 }
+
+/* Custom styling for the product cards */
+.product-card-custom .card-img-container {
+    width: 100%;
+    /* Creates a square container. You can adjust the padding-top to change the aspect ratio (e.g., 75% for 4:3) */
+    padding-top: 100%; 
+    position: relative;
+    background-color: #f8f9fa; /* A light background for any empty space */
+}
+
+.product-card-custom .card-img-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* This is the key property: fits the whole image inside the container without stretching */
+    object-fit: contain; 
+}
+
+/* Product Detail Page - Image Gallery */
+.main-img-container {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.thumbnail-img {
+    border: 2px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.thumbnail-img:hover {
+    border-color: #ccc;
+}
+
+.thumbnail-img.active {
+    border-color: var(--botanical-charcoal); /* Use your brand color */
+}

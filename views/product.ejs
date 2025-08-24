@@ -1,0 +1,44 @@
+<% layout('layout/boilerplate.ejs') %>
+
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <!-- Image Gallery Column -->
+        <div class="col-md-7">
+            <!-- Main Display Image -->
+            <div class="main-img-container mb-3">
+                <img src="<%= product.image %>" class="img-fluid" id="mainProductImage" alt="Main product view">
+            </div>
+            
+            <!-- Thumbnail Images -->
+            <div class="row thumbnail-row">
+                <!-- Thumbnail 1 (The main image) -->
+                <div class="col-3">
+                    <img src="<%= product.image %>" class="img-fluid thumbnail-img active" alt="Product thumbnail 1">
+                </div>
+                <!-- Thumbnail 2 (Placeholder) -->
+                <div class="col-3">
+                    <img src="/images/SAN_8508.jpg" class="img-fluid thumbnail-img" alt="Product thumbnail 2">
+                </div>
+                <!-- Thumbnail 3 (Placeholder) -->
+                <div class="col-3">
+                    <img src="/images/SAN_8523.jpg" class="img-fluid thumbnail-img" alt="Product thumbnail 3">
+                </div>
+                <!-- Thumbnail 4 (Placeholder) -->
+                <div class="col-3">
+                    <img src="/images/SAN_8527.jpg" class="img-fluid thumbnail-img" alt="Product thumbnail 4">
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Details Column -->
+        <div class="col-md-5 ps-md-5">
+            <h1 class="section-title"><%= product.name %></h1>
+            <h3 class="text-muted mb-3">$<%= product.price %></h3>
+            <p class="lead">A brief, elegant description of the product goes here. It highlights the key benefits and the botanical ingredients that make it special, inviting the customer to experience its nurturing effects.</p>
+            
+            <div class="d-grid gap-2 mt-4">
+                <a href="#" class="btn btn-dark btn-lg rounded-pill">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+</div>
